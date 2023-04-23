@@ -73,7 +73,8 @@ streamlit.write('The user entered ', fruit_choice)
 
 # my_data_rows = my_cur.fetchall()
 
-streamlit.header("The fruit load list contains:")
+#streamlit.header("The fruit load list contains:")
+streamlit.header("View Our Fruit List - Add Your Favorites!")
 
 #Snowflake-related functions
 def get_fruit_load_list():
@@ -82,9 +83,10 @@ def get_fruit_load_list():
         return my_cur.fetchall()
 
 # Add a button to load the fruit
-if streamlit.button('Get Fruit Load List'):
+if streamlit.button('Get Fruit List'):
     my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
     my_data_rows = get_fruit_load_list()
+    my_cnx.close()
     streamlit.dataframe(my_data_rows)
     
 
@@ -97,3 +99,4 @@ streamlit.write('Thanks for add ', add_my_fruit)
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("insert into fruit_load_list values ('" + add_my_fruit + "')" )
+my_cnx.close()
