@@ -71,7 +71,7 @@ streamlit.write('The user entered ', fruit_choice)
 
 # my_cur = my_cnx.cursor()
 
-my_data_rows = my_cur.fetchall()
+# my_data_rows = my_cur.fetchall()
 
 streamlit.header("The fruit load list contains:")
 
