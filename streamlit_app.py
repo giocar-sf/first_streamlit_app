@@ -69,7 +69,7 @@ streamlit.write('The user entered ', fruit_choice)
 
 
 
-my_cur = my_cnx.cursor()
+# my_cur = my_cnx.cursor()
 
 my_data_rows = my_cur.fetchall()
 
